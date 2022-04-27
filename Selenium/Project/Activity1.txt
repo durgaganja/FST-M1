@@ -1,0 +1,47 @@
+package activities;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class Activity1 {
+    WebDriver driver;
+    WebDriverWait wait;
+    @Test
+
+    public void  Activity()
+    {
+
+        // Instantiate a ChromeDriver class.
+         driver=new FirefoxDriver();
+
+        // Launch Websit
+        driver.navigate().to("https://alchemy.hguy.co/lms");
+        driver.manage().window().maximize();
+        driver.get("https://alchemy.hguy.co/lms");
+
+        String title= driver.getTitle();
+        //storing title of the tab in the browser
+        System.out.println(""+driver.getTitle());
+        String titleM="Alchemy LMS – An LMS Application";
+        if(title.equalsIgnoreCase(titleM)) //comparing title with given text
+        {
+            System.out.println("title is matched");
+        }
+
+        else
+        {
+            System.out.println("title is not matched");
+        }
+        driver.close();
+
+    } }
+
+
+
